@@ -1,3 +1,6 @@
+import java.util.Scanner;
+
+public class Main{
 public static void main(String[] args) {
 
         double metroQuadrado, area, privalor, secvalor, tercvalor, secvalorcal, tercvalorcal;
@@ -34,5 +37,5 @@ public static void main(String[] args) {
             System.out.print("Area total do terreno de " + frente + " mts de frente com " + lateral + " mts de lateral e:" + format.format(area));
             System.out.print("O terreno não recebeu nenhuma alteração e custara: R$" + format.format(metroQuadrado * area));
         }
-
     }
+ }
