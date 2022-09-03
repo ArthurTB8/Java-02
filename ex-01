@@ -1,56 +1,38 @@
-import java.util.Locale;
-import java.util.Scanner;
+public static void main(String[] args) {
 
-public class Main {
+        double metroQuadrado, area, privalor, secvalor, tercvalor, secvalorcal, tercvalorcal;
+        float lateral, frente, dif;
+        Scanner teclado = new Scanner(System.in);
+        DecimalFormat format = new DecimalFormat("####.##");
+        System.out.print("Quantos metros o terreno possui de frente: ");
+        frente = teclado.nextFloat();
 
-	public static void main(String[] args) {
-		
-		Locale.setDefault(Locale.US);
-		Scanner input = new Scanner(System.in);
-		
-		double valor = input.nextDouble();
-		int numInt = 0;
-		
-		
-		
-		System.out.println("NOTAS:");
-		numInt = (int) valor / 100;
-		System.out.println(numInt + " nota(s) de R$ 100.00");
-		valor = valor % 100;
-		numInt = (int) valor / 50;
-		System.out.println(numInt + " nota(s) de R$ 50.00");
-		valor = valor % 50;
-		numInt = (int) valor / 20;
-		System.out.println(numInt + " nota(s) de R$ 20.00");
-		valor = valor % 20;
-		numInt = (int) valor / 10;
-		System.out.println(numInt + " nota(s) de R$ 10.00");
-		valor = valor % 10;
-		numInt = (int) valor / 5;
-		System.out.println(numInt + " nota(s) de R$ 5.00");
-		valor = valor % 5;
-		numInt = (int) valor / 2;
-		System.out.println(numInt + " nota(s) de R$ 2.00");
-		valor = valor % 2;
-		
-		System.out.println("MOEDAS:");
-		numInt = (int) valor / 1;
-		valor = valor % 1;
-		System.out.println(numInt + " moeda(s) de R$ 1.00");
-		numInt =  (int) (valor / 0.5);
-		valor = valor % 0.5;
-		System.out.println(numInt + " moeda(s) de R$ 0.50");
-		numInt = (int) (valor / 0.25);
-		valor = valor % 0.25;
-		System.out.println(numInt + " moeda(s) de R$ 0.25");
-		numInt = (int) (valor / 0.10);
-		valor = valor % 0.10;
-		System.out.println(numInt + " moeda(s) de R$ 0.10");
-		numInt = (int) (valor / 0.05);
-		valor = valor % 0.05;
-		System.out.println(numInt + " moeda(s) de R$ 0.05");
-		numInt = (int) (valor / 0.01);
-		System.out.println(numInt + " moeda(s) de R$ 0.01");
-			
-	}
-}
+        System.out.print("Quantos metros o terreno possui de lateral: ");
+        lateral = teclado.nextFloat();
+
+        System.out.print("Informe o valor do metro quadrado: R$ ");
+        metroQuadrado = teclado.nextFloat();
+
+        area = lateral * frente;
+        dif = frente - lateral;
+
+        if (dif < frente * 0.1) {
+            privalor = area * metroQuadrado + (area * metroQuadrado) * 0.22;
+            System.out.print("Area total do terreno de " + frente + " mts de frente com " + lateral + " mts de lateral e :" + area + " mts");
+            System.out.print("O terreno recebeu um acrescimo de 22% e custara: " + privalor);
+        } else if (frente < lateral * 0.4) {
+            secvalor = area * metroQuadrado;
+            double deconto = secvalor * 0.12;
+            secvalor = secvalor - deconto;
+            System.out.print("Area total do terreno de " + frente + " mts de frente com " + lateral + " mts de lateral e:" + area);
+            System.out.print("O terreno recebeu um decrescimo de 12% e custara " + secvalor);
+        } else if (frente > lateral * 0.7) {
+            tercvalor = area * metroQuadrado - (area * metroQuadrado) * 0.15;
+            System.out.print("Area total do terreno de " + frente + " mts de frente com " + lateral + " mts de lateral e:" + format.format(area));
+            System.out.print("O terreno recebeu um decrescimo de 15% e custara:R$" + format.format(tercvalor));
+        } else {
+            System.out.print("Area total do terreno de " + frente + " mts de frente com " + lateral + " mts de lateral e:" + format.format(area));
+            System.out.print("O terreno não recebeu nenhuma alteração e custara: R$" + format.format(metroQuadrado * area));
+        }
+
+    }
