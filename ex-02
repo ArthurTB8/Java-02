@@ -17,7 +17,7 @@ public static void main(String[] args) {
 	
 	if (funcSal > salarioMin) {
             System.out.print("O funcionario recebe " +format.format(salsMins)+ " salarios minimos!");
-        } else if(salarioMin > funcSal) {
+        } else (salarioMin > funcSal) {
                 System.out.printf("O funcionario ganha menos que um salario minimo!") ;
             }
 	}
